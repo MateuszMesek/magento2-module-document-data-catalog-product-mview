@@ -3,7 +3,12 @@
     "description": "N/A",
     "type": "magento2-module",
     "require": {
-        "magento/framework": "*"
+        "magento/framework": "*",
+        "magento/module-catalog:": "*",
+        "magento/module-eav": "*",
+        "mateuszmesek-magento2/module-document-data-eav-api": "*",
+        "mateuszmesek-magento2/module-document-data-indexer": "*",
+        "mateuszmesek-magento2/module-document-data-indexer-mview": "*"
     },
     "replace": {
         "mateuszmesek-magento2/module-document-data-catalog-product-mview": "*"
