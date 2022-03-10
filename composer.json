@@ -10,9 +10,6 @@
         "mateuszmesek-magento2/module-document-data-indexer": "*",
         "mateuszmesek-magento2/module-document-data-indexer-mview": "*"
     },
-    "replace": {
-        "mateuszmesek-magento2/module-document-data-catalog-product-mview": "*"
-    },
     "license": [
         "MIT"
     ],
