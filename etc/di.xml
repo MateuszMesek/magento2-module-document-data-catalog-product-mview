@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="MateuszMesek\DocumentDataIndexerMview\Command\GetNodeSubscriptionsByDocument\ResolverPool">
+        <arguments>
+            <argument name="documents" xsi:type="array">
+                <item name="catalog_product" xsi:type="string">MateuszMesek\DocumentDataCatalogProductMview\Command\GetNodeSubscriptionsByDocument\CompositeResolver</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="MateuszMesek\DocumentDataCatalogProductMview\Command\GetNodeSubscriptionsByDocument\CompositeResolver" type="MateuszMesek\DocumentDataIndexerMview\Command\GetNodeSubscriptionsByDocument\CompositeResolver">
+        <arguments>
+            <argument name="resolvers" xsi:type="array">
+                <item name="config" xsi:type="string">MateuszMesek\DocumentDataCatalogProductMview\Command\GetNodeSubscriptionsByDocument\Config</item>
+                <item name="attribute" xsi:type="string">MateuszMesek\DocumentDataCatalogProductMview\NodeSubscription\Attribute\SubscriptionResolver</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="MateuszMesek\DocumentDataCatalogProductMview\Command\GetNodeSubscriptionsByDocument\Config" type="MateuszMesek\DocumentDataIndexerMview\Command\GetNodeSubscriptionsByDocument\ConfigResolver">
+        <arguments>
+            <argument name="documentName" xsi:type="const">Magento\Catalog\Model\Product::ENTITY</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="MateuszMesek\DocumentDataCatalogProductMview\Action" type="MateuszMesek\DocumentDataIndexerMview\Action">
+        <arguments>
+            <argument name="getChangelogList" xsi:type="object">MateuszMesek\DocumentDataCatalogProductMview\Command\GetChangelogList</argument>
+            <argument name="dimensionalIndexer" xsi:type="object">MateuszMesek\DocumentDataIndexer\DimensionalIndexer</argument>
+            <argument name="documentName" xsi:type="const">Magento\Catalog\Model\Product::ENTITY</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="MateuszMesek\DocumentDataCatalogProductMview\Command\GetChangelogList" type="MateuszMesek\DocumentDataIndexerMview\Command\GetChangelogList">
+        <arguments>
+            <argument name="documentName" xsi:type="const">Magento\Catalog\Model\Product::ENTITY</argument>
+        </arguments>
+    </virtualType>
+</config>
