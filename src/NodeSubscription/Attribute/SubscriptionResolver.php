@@ -8,7 +8,7 @@ use Magento\Eav\Api\Data\AttributeInterface;
 use Magento\Eav\Model\Config;
 use Magento\Framework\EntityManager\MetadataPool;
 use MateuszMesek\DocumentDataEavApi\AttributeValidatorInterface;
-use MateuszMesek\DocumentDataIndexerMviewApi\NodeSubscriptionsResolverInterface;
+use MateuszMesek\DocumentDataIndexMviewApi\NodeSubscriptionsResolverInterface;
 
 class SubscriptionResolver implements NodeSubscriptionsResolverInterface
 {
