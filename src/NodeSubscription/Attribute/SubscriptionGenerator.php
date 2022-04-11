@@ -8,7 +8,7 @@ use Magento\Catalog\Model\ResourceModel\Product as ProductResource;
 use Magento\Eav\Model\Config;
 use Magento\Framework\DB\Ddl\Trigger;
 use Magento\Framework\EntityManager\MetadataPool;
-use MateuszMesek\DocumentDataIndexerMview\Data\SubscriptionFactory;
+use MateuszMesek\DocumentDataIndexMview\Data\SubscriptionFactory;
 use Traversable;
 
 class SubscriptionGenerator
