@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace MateuszMesek\DocumentDataCatalogProductMview\NodeSubscription\Attribute;
+namespace MateuszMesek\DocumentDataCatalogProductMview\SubscriptionProvider\Attribute;
 
 use InvalidArgumentException;
 use Magento\Catalog\Api\Data\ProductInterface;
@@ -11,7 +11,7 @@ use Magento\Framework\EntityManager\MetadataPool;
 use MateuszMesek\DocumentDataIndexMview\Data\SubscriptionFactory;
 use Traversable;
 
-class SubscriptionGenerator
+class Generator
 {
     private MetadataPool $metadataPool;
     private Config $config;

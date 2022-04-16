@@ -1,16 +1,17 @@
 <?php declare(strict_types=1);
 
-namespace MateuszMesek\DocumentDataCatalogProductMview\NodeSubscription\Attribute;
+namespace MateuszMesek\DocumentDataCatalogProductMview\SubscriptionProvider;
 
-use Generator;
 use Magento\Catalog\Api\Data\ProductInterface;
 use Magento\Eav\Api\Data\AttributeInterface;
 use Magento\Eav\Model\Config;
 use Magento\Framework\EntityManager\MetadataPool;
+use MateuszMesek\DocumentDataCatalogProductMview\SubscriptionProvider\Attribute\Generator;
 use MateuszMesek\DocumentDataEavApi\AttributeValidatorInterface;
-use MateuszMesek\DocumentDataIndexMviewApi\NodeSubscriptionsResolverInterface;
+use MateuszMesek\DocumentDataIndexMviewApi\SubscriptionProviderInterface;
+use Traversable;
 
-class SubscriptionResolver implements NodeSubscriptionsResolverInterface
+class Attribute implements SubscriptionProviderInterface
 {
     private MetadataPool $metadataPool;
     private Config $config;
@@ -27,7 +28,7 @@ class SubscriptionResolver implements NodeSubscriptionsResolverInterface
         $this->attributeValidator = $attributeValidator;
     }
 
-    public function resolve(): Generator
+    public function get(array $context): Traversable
     {
         $metadata = $this->metadataPool->getMetadata(ProductInterface::class);
 
@@ -44,7 +45,7 @@ class SubscriptionResolver implements NodeSubscriptionsResolverInterface
             yield $attribute->getAttributeCode() => [
                 $id => [
                     'id' => $id,
-                    'type' => SubscriptionGenerator::class,
+                    'type' => Generator::class,
                     'arguments' => [
                         $attribute->getAttributeCode(),
                         'both'
