@@ -2,5 +2,6 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:MateuszMesek_DocumentDataIndexMview:etc/document_data_mview.xsd">
     <document name="catalog_product">
         <action name="MateuszMesek\DocumentDataCatalogProductMview\Action"/>
+        <subscriptionProvider name="MateuszMesek\DocumentDataCatalogProductMview\SubscriptionProvider\Composite"/>
     </document>
 </config>

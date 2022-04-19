@@ -7,7 +7,7 @@
             </argument>
         </arguments>
     </virtualType>
-    <virtualType name="KMK\DocumentDataCatalogProductMview\Action" type="MateuszMesek\DocumentDataIndexMview\Action">
+    <virtualType name="MateuszMesek\DocumentDataCatalogProductMview\Action" type="MateuszMesek\DocumentDataIndexMview\Action">
         <arguments>
             <argument name="documentName" xsi:type="string">catalog_product</argument>
         </arguments>
