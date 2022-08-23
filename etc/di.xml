@@ -3,6 +3,7 @@
     <virtualType name="MateuszMesek\DocumentDataCatalogProductMview\SubscriptionProvider\Composite" type="MateuszMesek\DocumentDataIndexMview\SubscriptionProvider\Composite">
         <arguments>
             <argument name="providers" xsi:type="array">
+                <item name="onDelete" xsi:type="string">MateuszMesek\DocumentDataCatalogProductMview\SubscriptionProvider\OnDelete</item>
                 <item name="attribute" xsi:type="string">MateuszMesek\DocumentDataCatalogProductMview\SubscriptionProvider\Attribute</item>
             </argument>
         </arguments>
