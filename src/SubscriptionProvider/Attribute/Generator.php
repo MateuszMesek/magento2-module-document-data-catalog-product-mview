@@ -64,21 +64,26 @@ class Generator
                     throw new InvalidArgumentException("Trigger event '$event' is unsupported");
             }
 
-            $condition = null;
-            $rows = <<<SQL
-                SELECT {$metadata->getIdentifierField()} AS document_id,
-                       NULL AS node_path,
-                       JSON_SET('{}', '$.$storeDimensionName', store.store_id) AS dimensions
-                FROM {$metadata->getEntityTable()}
-                CROSS JOIN $storeTable AS store
-                    ON store.store_id != 0
-                WHERE {$metadata->getLinkField()} = $prefix.{$metadata->getLinkField()}
-            SQL;
-
-            if (!$attribute->isStatic()) {
+            if ($attribute->isStatic()) {
+                $condition = null;
+                $rows = <<<SQL
+                    SELECT $prefix.{$metadata->getIdentifierField()} AS document_id,
+                           NULL AS node_path,
+                           JSON_SET('{}', '$.$storeDimensionName', store.store_id) AS dimensions
+                    FROM $storeTable AS store
+                    WHERE store.store_id != 0
+                SQL;
+            } else {
                 $condition = "$prefix.attribute_id = {$attribute->getAttributeId()}";
-                $rows .= <<<SQL
-                    AND IF($prefix.store_id = 0, 1, store.store_id = $prefix.store_id)
+                $rows = <<<SQL
+                    SELECT product.{$metadata->getIdentifierField()} AS document_id,
+                           NULL AS node_path,
+                           JSON_SET('{}', '$.$storeDimensionName', store.store_id) AS dimensions
+                    FROM {$metadata->getEntityTable()} AS product
+                    CROSS JOIN $storeTable AS store
+                        ON store.store_id != 0
+                    WHERE product.{$metadata->getLinkField()} = $prefix.{$metadata->getLinkField()}
+                      AND IF($prefix.store_id = 0, 1, store.store_id = $prefix.store_id)
                 SQL;
             }
 
