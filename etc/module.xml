@@ -2,6 +2,9 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
     <module name="MateuszMesek_DocumentDataCatalogProductMview">
         <sequence>
+            <module name="Magento_Catalog"/>
+            <module name="Magento_Eav"/>
+            <module name="Magento_Store"/>
             <module name="MateuszMesek_CatalogProductDocument"/>
         </sequence>
     </module>

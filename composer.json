@@ -3,12 +3,14 @@
     "description": "N/A",
     "type": "magento2-module",
     "require": {
+        "php": ">=8.1",
         "magento/framework": "*",
         "magento/module-catalog": "*",
         "magento/module-eav": "*",
-        "mateuszmesek-magento2/module-document-data-eav-api": "*",
-        "mateuszmesek-magento2/module-document-data-index-indexer": "*",
-        "mateuszmesek-magento2/module-document-data-index-mview": "*"
+        "magento/module-store": "*",
+        "mateuszmesek-magento2/module-document-data-eav-api": "^1.0",
+        "mateuszmesek-magento2/module-document-data-index-indexer": "^1.0",
+        "mateuszmesek-magento2/module-document-data-index-mview": "^1.0"
     },
     "license": [
         "MIT"
@@ -18,7 +20,7 @@
             "registration.php"
         ],
         "psr-4": {
-            "MateuszMesek\\DocumentDataCatalogProductMview\\": "src"
+            "MateuszMesek\\DocumentDataCatalogProductMview\\": ""
         }
     }
 }

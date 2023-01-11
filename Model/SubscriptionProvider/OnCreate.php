@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace MateuszMesek\DocumentDataCatalogProductMview\SubscriptionProvider;
+namespace MateuszMesek\DocumentDataCatalogProductMview\Model\SubscriptionProvider;
 
-use MateuszMesek\DocumentDataCatalogProductMview\SubscriptionProvider\OnCreate\Generator;
-use MateuszMesek\DocumentDataIndexMviewApi\SubscriptionProviderInterface;
+use MateuszMesek\DocumentDataCatalogProductMview\Model\SubscriptionProvider\OnCreate\Generator;
+use MateuszMesek\DocumentDataIndexMviewApi\Model\SubscriptionProviderInterface;
 use Traversable;
 
 class OnCreate implements SubscriptionProviderInterface
