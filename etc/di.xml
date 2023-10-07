@@ -5,6 +5,7 @@
             <argument name="providers" xsi:type="array">
                 <item name="onCreate" xsi:type="string">MateuszMesek\DocumentDataCatalogProductMview\Model\SubscriptionProvider\OnCreate</item>
                 <item name="onDelete" xsi:type="string">MateuszMesek\DocumentDataCatalogProductMview\Model\SubscriptionProvider\OnDelete</item>
+                <item name="onWebsiteChange" xsi:type="string">MateuszMesek\DocumentDataCatalogProductMview\Model\SubscriptionProvider\OnWebsiteChange</item>
                 <item name="attribute" xsi:type="string">MateuszMesek\DocumentDataCatalogProductMview\Model\SubscriptionProvider\Attribute</item>
             </argument>
         </arguments>
